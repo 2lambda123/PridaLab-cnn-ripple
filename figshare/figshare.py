@@ -32,7 +32,7 @@ def issue_request(method, url, headers, data=None, binary=False):
     if data is not None and not binary:
         data = json.dumps(data)
 
-    response = requests.request(method, url, headers=headers, data=data)
+    response = requests.request(method, url, headers=headers, data=data, timeout=60)
 
     try:
         response.raise_for_status()
